@@ -1,0 +1,57 @@
+﻿Order,Tax Bracket,Tax Rate,Tax Year,Filing Status,Accumulated_Tax
+1,0,0.1,2017,Single,0.00
+2,9525,0.15,2017,Single,952.50
+3,38700,0.25,2017,Single,5328.75
+4,93700,0.28,2017,Single,19078.75
+5,195450,0.33,2017,Single,47568.75
+6,424950,0.35,2017,Single,123303.75
+7,426700,0.396,2017,Single,123916.25
+8,0,0.1,2017,Married Filing Jointly,0.00
+9,19050,0.15,2017,Married Filing Jointly,1905.00
+10,77400,0.25,2017,Married Filing Jointly,10657.50
+11,156150,0.28,2017,Married Filing Jointly,30345.00
+12,237950,0.33,2017,Married Filing Jointly,53249.00
+13,424950,0.35,2017,Married Filing Jointly,114959.00
+14,480050,0.396,2017,Married Filing Jointly,134244.00
+15,0,0.1,2017,Head of Household,0.00
+16,13600,0.15,2017,Head of Household,1360.00
+17,51850,0.25,2017,Head of Household,7097.50
+18,133850,0.28,2017,Head of Household,27597.50
+19,216700,0.33,2017,Head of Household,50795.50
+20,424950,0.35,2017,Head of Household,119518.00
+21,453350,0.396,2017,Head of Household,129458.00
+22,0,0.1,2017,Married Filing Separately,0.00
+23,9525,0.15,2017,Married Filing Separately,952.50
+24,38700,0.25,2017,Married Filing Separately,5328.75
+25,78075,0.28,2017,Married Filing Separately,15172.50
+26,118975,0.33,2017,Married Filing Separately,26624.50
+27,212475,0.35,2017,Married Filing Separately,57479.50
+28,240025,0.396,2017,Married Filing Separately,67122.00
+29,0,0.1,2018,Single,0.00
+30,9525,0.12,2018,Single,952.50
+31,38700,0.22,2018,Single,4453.50
+32,82500,0.24,2018,Single,14089.50
+33,157500,0.32,2018,Single,32089.50
+34,200000,0.35,2018,Single,45689.50
+35,500000,0.37,2018,Single,150689.50
+36,0,0.1,2018,Married Filing Separately,0.00
+37,9525,0.12,2018,Married Filing Separately,952.50
+38,38700,0.22,2018,Married Filing Separately,4453.50
+39,82500,0.24,2018,Married Filing Separately,14089.50
+40,157500,0.32,2018,Married Filing Separately,32089.50
+41,200000,0.35,2018,Married Filing Separately,45689.50
+42,300000,0.37,2018,Married Filing Separately,80689.50
+43,0,0.1,2018,Married Filing Jointly,0.00
+44,19050,0.12,2018,Married Filing Jointly,1905.00
+45,77400,0.22,2018,Married Filing Jointly,8907.00
+46,165000,0.24,2018,Married Filing Jointly,28179.00
+47,315000,0.32,2018,Married Filing Jointly,64179.00
+48,400000,0.35,2018,Married Filing Jointly,91379.00
+49,600000,0.37,2018,Married Filing Jointly,161379.00
+50,0,0.1,2018,Head of Household,0.00
+51,13600,0.12,2018,Head of Household,1360.00
+52,51800,0.22,2018,Head of Household,5944.00
+53,82500,0.24,2018,Head of Household,12698.00
+54,157500,0.32,2018,Head of Household,30698.00
+55,200000,0.35,2018,Head of Household,44298.00
+56,500000,0.37,2018,Head of Household,149298.00

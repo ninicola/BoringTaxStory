@@ -8,11 +8,13 @@ from sqlalchemy import create_engine, func
 from flask import render_template
 from flask import Flask, jsonify
 import pymysql
-
+import tax_calculation
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("mysql://zjgcainiao:pythonrocks@boringtaxstory.cz3mz9lucrsr.us-west-2.rds.amazonaws.com:3292/TaxRate")
+
+mysql_link="mysql://zjgcainiao:pythonrocks@boringtaxstory.cz3mz9lucrsr.us-west-2.rds.amazonaws.com:3292/TaxRate"
+engine = create_engine(mysql_link)
 
 # reflect an existing database into a new model
 # Base=declarative_base()
@@ -21,7 +23,7 @@ Base = automap_base()
 class household_income_by_state_us (Base):
     __tablename__ = 'household_income_by_state_us',
     State = Column(String(255), primary_key=True)
-    Median_Income_2017=Column(String(255))
+    Median_Income_2017=Column(Integer)
 # reflect the tables
 Base.prepare(engine, reflect=True)
 
@@ -36,7 +38,6 @@ session = Session(engine)
 # Flask Setup
 #################################################
 app = Flask(__name__, static_folder='./static', static_url_path='')
-
 
 
 #################################################
@@ -63,21 +64,25 @@ def names():
     all_names = list(np.ravel(results))
 
     return jsonify(all_names)
-
+    
+# @app.routes("/tax_data")
+# def tax_data_calculation():
+#     result=calc_fed_tax(100000,2017,'Single')
+#     return jsonify(result)
 
 @app.route("/households")
 def passengers():
     """Return a list of passenger data including the name, age, and sex of each passenger"""
     # Query all passengers
     results = session.query(Household_Income).all()
-
+    # console.log(results)
     # Create a dictionary from the row data and append to a list of all_passengers
     all_households = []
     for household in results:
         households_dict = {}
         households_dict["state"] = household.State
-        households_dict["median_income_2017"] = household.Median_Income_2017
-        households_dict["year"] = '2017'
+        households_dict["median_income_2017"] = str(household.Median_Income_2017)
+        # households_dict["year"] = '2017'
         all_households.append(households_dict)
 
     return jsonify(all_households)

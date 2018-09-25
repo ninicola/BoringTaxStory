@@ -20,11 +20,30 @@
 
     <!-- Custom styles for this template -->
     <link href="css/resume.min.css" rel="stylesheet">
+<!-- // -->
+  <!-- Leaflet CSS & JS-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+  integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+  crossorigin=""></script>
+
+  <!-- d3 JavaScript -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- Leaflet-Choropleth JavaScript -->
+  <script type="text/javascript" src="js/choropleth.js"></script>
+  
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- // -->
 
   </head>
 
   <body id="page-top">
-
+ 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">We will tell you a boring tax story</span>
@@ -61,7 +80,9 @@
 
     <div class="container-fluid p-0">
 
+      <!-- <div id='map'></div> -->
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+
         <div class="my-auto">
           <h1 class="mb-0">2017 Tax
             <span class="text-primary">Impact</span>
@@ -70,7 +91,8 @@
             <a href="mailto:name@email.com">name@email.com</a>
           </div>
           <p class="lead mb-5">How much the new 2018 Trump Income Tax rate would affect a household making a gross income of $80,000 .</p>
-          <div class="social-icons">
+
+          <!-- <div class="social-icons">
             <a href="#">
               <i class="fab fa-linkedin-in"></i>
             </a>
@@ -83,10 +105,19 @@
             <a href="#">
               <i class="fab fa-facebook-f"></i>
             </a>
-          </div>
-        </div>
+          </div> -->
+
+        </div> 
       </section>
 
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="map">
+      <!-- this is the median household income section -->
+        <!-- <div class="my-auto"> -->
+        <!-- <h2>How much a median household earns in year 2017?</h2> -->
+        <!-- <div class='resume-section p-3 p-lg-5 d-flex flex-column' id="map"></div> -->
+      </section>    
       <hr class="m-0">
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
@@ -140,6 +171,10 @@
         </div>
 
       </section>
+      
+      <hr class="m-0">
+      <!-- svg place -->
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="svg_graphic_section"></section>
 
       <hr class="m-0">
 
@@ -294,7 +329,12 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
-
+    <!-- the config api key for the mapbox -->
+    <script type='text/javaScript' src='js/config.js'></script>
+    <!-- this is for the logic to show the map -->
+    <script type='text/javaScript' src='js/logic.js'></script>
+     <!-- this is SVG drawing logic -->
+    <script type='text/javaScript' src='js/graphic.js'></script>
   </body>
 
 </html>
