@@ -65,10 +65,10 @@ def names():
 
     return jsonify(all_names)
     
-# @app.routes("/tax_data")
-# def tax_data_calculation():
-#     result=calc_fed_tax(100000,2017,'Single')
-#     return jsonify(result)
+@app.route("/tax_data/<income_input>")
+def tax_data_calculation(income_input):
+    result=calc_fed_tax(income_input,2017,'Single')
+    return jsonify(result)
 
 @app.route("/households")
 def passengers():
