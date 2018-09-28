@@ -42,7 +42,7 @@ var legend;
 var myMap;
 
 
-var geojsonLink ='median_income_us_geo.json'
+var geojsonLink ='county_geo_json_v1.json'
 //  'https://s3-us-west-2.amazonaws.com/usmapgeojson/us_states_geo.json';
 var householdIncomeLink='/households';
 
