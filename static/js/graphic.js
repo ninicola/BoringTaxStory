@@ -56,8 +56,22 @@ d3.json('/tax_data/10000',function(err,data){
         .domain(d3.extent(data,d=>d.federal_tax_rate))
         .range([chartHeight, 0]);
 
-console.log('max federal_tax_rate: ', d3.max(data,d=>d.federal_tax_rate));
-console.log('Extent gross_income: ', d3.extent(data,d=>d.gross_income));
+        var fruitMenu = d3.select("#div_dropdown_list")
+
+        fruitMenu
+            .append("select")
+            .selectAll("option")
+            .data([2017,2016,2015])
+            .enter()
+            .append("option")
+            .attr("value", function(d){
+                return d.key;
+            })
+            .text(function(d){
+                return d.key;
+            })
+
+
     // scale x to chart width
     var xScale = d3.scaleLinear()
         .domain([0,d3.max(data,d=>d.gross_income)])

@@ -5,8 +5,8 @@ tax_df=pd.read_csv("https://s3-us-west-2.amazonaws.com/usmapgeojson/FederalTaxBr
 
 def calc_fed_tax(income,year,filing_status):
     #tax_df=pd.read_csv("https://s3-us-west-2.amazonaws.com/usmapgeojson/FederalTaxBrackets.csv").set_index('Order')
-    filtered_tax_df=tax_df[(tax_df['Filing Status']=='Single')& \
-                       (tax_df['Tax Year']==2018) ] \
+    filtered_tax_df=tax_df[(tax_df['Filing Status']==filing_status)& \
+                       (tax_df['Tax Year']==year) ] \
                 .sort_values(by='Tax Bracket',ascending=True)
     index_max=filtered_tax_df.index.max()
     fed_tax_accum_dollar=0
