@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 
 import sqlalchemy
@@ -9,6 +11,8 @@ from flask import render_template
 from flask import Flask, jsonify
 import pymysql
 from tax_calculation import calc_fed_tax
+# from flask_cache import Cache
+
 #################################################
 # Database Setup
 #################################################
@@ -47,6 +51,7 @@ app = Flask(__name__, static_folder='./static', static_url_path='')
 #################################################
 
 @app.route("/")
+# @cacfhe.cached(timeout=50)
 def welcome():
     """List all available api routes."""
     # return (
@@ -67,8 +72,8 @@ def fetch_state_names():
 
     return jsonify(all_names)
     
-@app.route("/tax_data")
-def tax_data_calculation(): 
+@app.route("/tax_data/<int:income_input>")
+def tax_data_calculation(income_input): 
     income_input_range=[]
     result_list=[]
     for i in range(10,110):
