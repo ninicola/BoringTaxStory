@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 
 import sqlalchemy
@@ -8,7 +10,9 @@ from sqlalchemy import create_engine, func
 from flask import render_template
 from flask import Flask, jsonify
 import pymysql
-import tax_calculation
+from tax_calculation import calc_fed_tax
+# from flask_cache import Cache
+
 #################################################
 # Database Setup
 #################################################
@@ -24,6 +28,8 @@ class household_income_by_state_us (Base):
     __tablename__ = 'household_income_by_state_us',
     State = Column(String(255), primary_key=True)
     Median_Income_2017=Column(Integer)
+    Median_Income_2016=Column(Integer)
+    Median_Income_2015=Column(Integer)
 # reflect the tables
 Base.prepare(engine, reflect=True)
 
@@ -45,6 +51,7 @@ app = Flask(__name__, static_folder='./static', static_url_path='')
 #################################################
 
 @app.route("/")
+# @cacfhe.cached(timeout=50)
 def welcome():
     """List all available api routes."""
     # return (
@@ -55,7 +62,7 @@ def welcome():
     return render_template('index.html')
 
 @app.route("/states")
-def names():
+def fetch_state_names():
     """Return a list of all passenger names"""
     # Query all passengers
     results = session.query(Household_Income.State).all()
@@ -65,10 +72,21 @@ def names():
 
     return jsonify(all_names)
     
-@app.route("/tax_data/<income_input>")
-def tax_data_calculation(income_input):
-    result=calc_fed_tax(income_input,2017,'Single')
-    return jsonify(result)
+@app.route("/tax_data/<int:income_input>")
+def tax_data_calculation(income_input): 
+    income_input_range=[]
+    result_list=[]
+    for i in range(10,110):
+        income_input=i*1000
+        income_input_range.append(i*1000)
+        tax_result=calc_fed_tax(income_input,2017,'Single')
+        tax_result_json={
+            'gross_income':income_input,
+            'federal_tax_rate': tax_result[1],
+            'federal_tax_dollar':tax_result[0]
+        }
+        result_list.append(tax_result_json)
+    return jsonify(result_list)
 
 @app.route("/households")
 def passengers():
@@ -82,6 +100,8 @@ def passengers():
         households_dict = {}
         households_dict["state"] = household.State
         households_dict["median_income_2017"] = str(household.Median_Income_2017)
+        households_dict["median_income_2016"] = str(household.Median_Income_2016)
+        households_dict["median_income_2015"] = str(household.Median_Income_2015)        
         # households_dict["year"] = '2017'
         all_households.append(households_dict)
 
