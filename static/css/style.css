@@ -60,3 +60,43 @@ html {
 h1 {
   text-align: center;
 }
+a:focus,
+input:focus,
+textarea:focus,
+button:focus {
+	outline: 0 solid;
+}
+
+a:link a:active,
+a:visited,
+	{
+	text-decoration: none !important;
+}
+
+a,
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+a.scroll-down {
+	position: absolute;
+	bottom: 70px;
+	left: 50%;
+	margin-left: -32px;
+	display: inline-block;
+	width: 65px;
+	height: 65px;
+	background: #fff;
+	text-align: center;
+	line-height: 65px;
+	border-radius: 50%;
+	color: #9fa4af;
+	font-size: 20px;
+	transition: all 0.3s ease-in-out;
+	z-index: 2;
+}
+
+a.scroll-down:hover {
+	background: #6e45e2;
+	color: #fff;
+}

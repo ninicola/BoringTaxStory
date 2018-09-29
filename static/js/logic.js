@@ -72,7 +72,7 @@ d3.queue()
 
 
 // Creating a new choropleth layer
-geojsonOverlayLayer = L.choropleth(data, {
+geojsonOverlayLayer_2017 = L.choropleth(data, {
   // Which property in the features to use
   valueProperty: "median_income_2017",
   // Color scale
@@ -100,7 +100,36 @@ geojsonOverlayLayer = L.choropleth(data, {
           fillOpacity: 0.8
         });
   }
-});//.addTo(myMap);
+});
+geojsonOverlayLayer_2016 = L.choropleth(data, {
+  // Which property in the features to use
+  valueProperty: "median_income_2016",
+  // Color scale
+  scale: ["#ffffb2", "#036819"],
+  // Number of breaks in step range
+  steps: 10,
+  // q for quartile, e for equidistant, k for k-means
+  mode: "q",
+  style: {
+    // Border color
+    color: "#fff",
+    weight: 1,
+    fillOpacity: 0.8
+  },
+  // Binding a pop-up to each layer
+  onEachFeature: function(feature, layer) {
+    layer.bindPopup("<br>State Name:"+ feature.properties.name + 
+                    "<br> Median Household Income: $" + numberWithCommas(feature.properties.median_income_2017) );
+  },
+  pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+          radius: feature.properties.median_income_2016**2/2.5,
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.8
+        });
+  }
+});
 
 
 
@@ -108,12 +137,14 @@ geojsonOverlayLayer = L.choropleth(data, {
   myMap = L.map("map", {
     center: [38.8869223,-104.2744006],
     zoom: 3.5,
-    layers:[satelliteMapLayer,geojsonOverlayLayer]
+    layers:[satelliteMapLayer,geojsonOverlayLayer_2017]
   });
   // Create overlay object to hold our overlay layer
   overlayLayers = {
     // Borderlines: plateOverlayLayer
-    'Y 2017': geojsonOverlayLayer
+    'Y 2017': geojsonOverlayLayer_2017,
+    'Y 2016': geojsonOverlayLayer_2016
+  
   };
 
 
@@ -125,8 +156,8 @@ geojsonOverlayLayer = L.choropleth(data, {
     legend = L.control({ position: "bottomright" });
     legend.onAdd = function() {
       var div = L.DomUtil.create("div", "info legend");
-      var limits = geojsonOverlayLayer.options.limits;
-      var colors = geojsonOverlayLayer.options.colors;
+      var limits = geojsonOverlayLayer_2017.options.limits;
+      var colors = geojsonOverlayLayer_2017.options.colors;
       var labels = [];
   
       // Add min & max

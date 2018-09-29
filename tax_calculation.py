@@ -4,6 +4,7 @@ import numpy as np
 tax_df=pd.read_csv("https://s3-us-west-2.amazonaws.com/usmapgeojson/FederalTaxBrackets.csv").set_index('Order')
 
 def calc_fed_tax(income,year,filing_status):
+    #tax_df=pd.read_csv("https://s3-us-west-2.amazonaws.com/usmapgeojson/FederalTaxBrackets.csv").set_index('Order')
     filtered_tax_df=tax_df[(tax_df['Filing Status']=='Single')& \
                        (tax_df['Tax Year']==2018) ] \
                 .sort_values(by='Tax Bracket',ascending=True)
