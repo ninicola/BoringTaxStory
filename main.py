@@ -21,10 +21,10 @@ from db_setup import *
 
 
 
-# mysql_connection=db_type_prefix+username+":"+password+ \
-#             '@'+db_link+':'+port+'/'+table
+mysql_connection=db_type_prefix+username+":"+password+ \
+            '@'+db_link+':'+port+'/'+table
            
-mysql_connection="mysql://zjgcainiao:pythonrocks@boringtaxstory.cz3mz9lucrsr.us-west-2.rds.amazonaws.com:3292/TaxRate"
+# mysql_connection="mysql://zjgcainiao:pythonrocks@boringtaxstory.cz3mz9lucrsr.us-west-2.rds.amazonaws.com:3292/TaxRate"
 engine = create_engine(mysql_connection)
 
 # reflect an existing database into a new model

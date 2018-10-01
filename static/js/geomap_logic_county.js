@@ -42,7 +42,8 @@ var legend_county;
 var myMap_county;
 
 
-var geojsonLink_by_county='csv/county_geo_json_v1.json'
+var geojsonLink_by_county='https://s3-us-west-2.amazonaws.com/usmapgeojson/county_geo_json_v1.json'
+// 'csv/county_geo_json_v1.json'
 
 // function createMap (geojsonLink,borderjsonLink)
 // Grabbing data with d3... EarthquakeData and BorderJsonData at the same time
