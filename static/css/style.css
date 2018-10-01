@@ -3,11 +3,11 @@
   margin: 0;
 } */
 
-#map{
+#map,#map_county, path{
   display: inline-block;
   padding:auto;
   margin:10px;
-  /* height: 80%; */
+  height: 80%;
   width:90%;
 }
 
@@ -60,7 +60,7 @@ html {
 h1 {
   text-align: center;
 }
-a:focus,
+/* a:focus,
 input:focus,
 textarea:focus,
 button:focus {
@@ -71,7 +71,7 @@ a:link a:active,
 a:visited,
 	{
 	text-decoration: none !important;
-}
+} */
 
 a,
 a:hover {
