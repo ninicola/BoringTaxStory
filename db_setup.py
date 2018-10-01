@@ -1,0 +1,6 @@
+db_type_prefix='mysql://'
+db_link='boringtaxstory.cz3mz9lucrsr.us-west-2.rds.amazonaws.com'
+username='zjgcainiao'
+password='pythonrocks'
+port='3292'
+table='TaxRate'
