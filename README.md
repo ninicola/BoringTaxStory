@@ -15,6 +15,7 @@ The structure of the project folder:
   - templates
 - main.py
 - tax_calculation.py
+- db_setup.py
 - app.yaml
 - requirements.txt
 
