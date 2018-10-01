@@ -72,14 +72,14 @@ def fetch_state_names():
 
     return jsonify(all_names)
     
-@app.route("/tax_data/<int:income_input>")
-def tax_data_calculation(income_input): 
+@app.route("/tax_data/<status>")
+def tax_data_calculation(status):
     income_input_range=[]
     result_list=[]
     for i in range(10,110):
         income_input=i*1000
         income_input_range.append(i*1000)
-        tax_result=calc_fed_tax(income_input,2017,'Single')
+        tax_result=calc_fed_tax(status)
         tax_result_json={
             'gross_income':income_input,
             'federal_tax_rate': tax_result[1],

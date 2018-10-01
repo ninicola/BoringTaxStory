@@ -28,10 +28,10 @@ console.log('I am here ... line 25');
 // shift everything over by the margins
 var chartGroup = svg.append("g")
      .attr("transform", `translate(${margin.left}, ${margin.top})`);
+var status = d3.select("#select_status").property("value")
 
-
-d3.json('/tax_data/10000',function(err,data){
-    // console.log(data);
+d3.json('/tax_data/${status}',function(err,data){
+    console.log(data);
     if (err) throw err;
     // console.log('Line 35');
     // data
