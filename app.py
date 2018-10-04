@@ -91,8 +91,13 @@ def fetch_state_revenues():
 
     return jsonify(state_revenue_list)
     
+<<<<<<< HEAD:app.py
+@app.route("/tax_data/<status>")
+def tax_data_calculation(status):
+=======
 @app.route("/tax_data/<int:year>")
 def tax_data_calculation(year): 
+>>>>>>> a67d0fcb6762087303ba000c3a9a8e83e2839689:main.py
     income_input_range=[]
     result_list=[]
     # filing status shall be single, married filing jointly, married filing separately and head of household
@@ -103,7 +108,11 @@ def tax_data_calculation(year):
 
         income_input=i*1000
         income_input_range.append(i*1000)
+<<<<<<< HEAD:app.py
+        tax_result=calc_fed_tax(status)
+=======
         tax_result=calc_fed_tax(income_input,year,filing_status)
+>>>>>>> a67d0fcb6762087303ba000c3a9a8e83e2839689:main.py
         tax_result_json={
             'gross_income':income_input,
             'federal_tax_rate': tax_result[1],

@@ -25,7 +25,12 @@ var svg = d3.select('#svg_graphic_section').append("svg")
 // shift everything over by the margins
 var chartGroup = svg.append("g")
      .attr("transform", `translate(${margin.left}, ${margin.top})`);
+var status = d3.select("#select_status").property("value")
 
+<<<<<<< HEAD
+d3.json('/tax_data/${status}',function(err,data){
+    console.log(data);
+=======
 //join the line of income in 2017 and 2018
 // read two jsons at the same time.
 d3.queue()
@@ -33,6 +38,7 @@ d3.queue()
   .defer(d3.json,'tax_data/2018')
   .await(function(err,data_2017,data_2018){
     // console.log(data);
+>>>>>>> a67d0fcb6762087303ba000c3a9a8e83e2839689
     if (err) throw err;
     // console.log('Line 35');
     // data
