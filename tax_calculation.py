@@ -5,7 +5,12 @@ tax_df=pd.read_csv("https://s3-us-west-2.amazonaws.com/usmapgeojson/FederalTaxBr
 
 def calc_fed_tax(filing_status):
     #tax_df=pd.read_csv("https://s3-us-west-2.amazonaws.com/usmapgeojson/FederalTaxBrackets.csv").set_index('Order')
+<<<<<<< HEAD
     filtered_tax_df = tax_df[(tax_df['Filing Status'] == filing_status)
+=======
+    filtered_tax_df=tax_df[(tax_df['Filing Status']==filing_status)& \
+                       (tax_df['Tax Year']==year) ] \
+>>>>>>> a67d0fcb6762087303ba000c3a9a8e83e2839689
                 .sort_values(by='Tax Bracket',ascending=True)
     # index_max=filtered_tax_df.index.max()
     # fed_tax_accum_dollar=0

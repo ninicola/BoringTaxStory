@@ -1,4 +1,4 @@
-﻿Order,Tax Bracket,Tax Rate,Tax Year,Filing Status,Accumulated_Tax
+﻿Order,Tax Bracket,Tax_Rate,Tax_Year,Filing Status,Accumulated_Tax
 1,0,0.1,2017,Single,0.00
 2,9525,0.15,2017,Single,952.50
 3,38700,0.25,2017,Single,5328.75
