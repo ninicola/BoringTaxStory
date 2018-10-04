@@ -42,7 +42,8 @@ var legend_county;
 var myMap_county;
 
 
-var geojsonLink_by_county='https://s3-us-west-2.amazonaws.com/usmapgeojson/county_geo_json_v1.json'
+var geojsonLink_by_county= 'csv/county_geo_json_v1.json'
+// 'https://s3-us-west-2.amazonaws.com/usmapgeojson/county_geo_json_v1.json'
 // 'csv/county_geo_json_v1.json'
 
 // function createMap (geojsonLink,borderjsonLink)
@@ -78,7 +79,8 @@ geojsonOverlayLayer_2015 = L.choropleth(data, {
   onEachFeature: function(feature, layer) {
     layer.bindPopup("<br>County Name:"+ feature.properties.NAME + ' '+ feature.properties.LSAD +
                     "<br> Median Income: $" + (feature.properties.Income) +
-                    "<br> Men/Women Ratio: " + numberWithCommas(feature.properties.Men/feature.properties.Women));
+                    "<br> Income Per Capita: $" + (feature.properties.IncomePerCap) +
+                    "<br> Men/Women Ratio: " + (feature.properties.Men/feature.properties.Women));
   }
   // pointToLayer: function (feature, latlng) {
   //       return L.circleMarker(latlng, {

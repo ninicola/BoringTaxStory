@@ -35,4 +35,5 @@ the web server to host flask app is [gunicorn](https://gunicorn.org/) in a produ
 - `gcloud app deploy --project your-app-id -v your-version`
 - or navigate the web app folder and then run `gcloud app deploy`
 ![deployment screenshot](static/img/gcloud_deployment.png)
+
 ### visit the web application at https://datavizd3.appspot.com/

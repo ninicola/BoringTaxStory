@@ -42,6 +42,8 @@ var myMap;
 
 
 var geojsonLink_by_state='csv/median_income_us_geo.json'
+// 'https://s3-us-west-2.amazonaws.com/usmapgeojson/median_income_us_geo.json'
+// 'csv/median_income_us_geo.json'
 //  'https://s3-us-west-2.amazonaws.com/usmapgeojson/us_states_geo.json';
 // var householdIncomeLink='/households';
 
